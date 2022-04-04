@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CarousellChatSDKExampleApp.iml" filepath="$PROJECT_DIR$/.idea/modules/CarousellChatSDKExampleApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CarousellChatSDK/CarousellChatSDKExampleApp.CarousellChatSDK.iml" filepath="$PROJECT_DIR$/.idea/modules/CarousellChatSDK/CarousellChatSDKExampleApp.CarousellChatSDK.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CarousellChatSDKExampleApp/CarousellChatSDKExampleApp.CarousellChatSDKExampleApp.iml" filepath="$PROJECT_DIR$/.idea/modules/CarousellChatSDKExampleApp/CarousellChatSDKExampleApp.CarousellChatSDKExampleApp.iml" />
+    </modules>
+  </component>
+</project>

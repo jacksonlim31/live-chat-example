@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/authFragment">
+
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.carousell.sample.ui.AuthFragment"
+        android:label="AuthFragment">
+
+        <action
+            android:id="@+id/redirectToChannel"
+            app:destination="@id/channelFragment">
+            <argument
+                android:name="userId"
+                app:argType="string"
+                android:defaultValue='' />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/channelFragment"
+        android:name="com.carousell.sample.ui.ChannelFragment"
+        android:label="ChannelFragment">
+
+        <argument
+            android:name="userId"
+            app:argType="string"
+            android:defaultValue='' />
+
+        <action
+            android:id="@+id/chooseChannel"
+            app:destination="@id/chatFragment">
+            <argument
+                android:name="channelId"
+                app:argType="string"
+                android:defaultValue='' />
+
+            <argument
+                android:name="lastMessageCreatedAt"
+                app:argType="long" />
+
+            <argument
+                android:name="userId"
+                app:argType="string"
+                android:defaultValue='' />
+
+            <argument
+                android:name="itemPrice"
+                app:argType="string"
+                android:defaultValue='' />
+
+            <argument
+                android:name="itemName"
+                app:argType="string"
+                android:defaultValue='' />
+
+            <argument
+                android:name="itemImage"
+                app:argType="string"
+                android:defaultValue='' />
+
+            <argument
+                android:name="userAvatar"
+                app:argType="string"
+                android:defaultValue='' />
+
+            <argument
+                android:name="userName"
+                app:argType="string"
+                android:defaultValue='' />
+
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.carousell.sample.ui.ChatRoomFragment"
+        android:label="ChatFragment" >
+        <argument
+            android:name="channelId"
+            app:argType="string"
+            android:defaultValue=''/>
+
+        <argument
+            android:name="lastMessageCreatedAt"
+            app:argType="long"/>
+
+        <argument
+            android:name="userId"
+            app:argType="string"
+            android:defaultValue='' />
+
+        <argument
+            android:name="itemPrice"
+            app:argType="string"
+            android:defaultValue='' />
+
+        <argument
+            android:name="itemName"
+            app:argType="string"
+            android:defaultValue='' />
+
+        <argument
+            android:name="itemImage"
+            app:argType="string"
+            android:defaultValue='' />
+
+        <argument
+            android:name="userAvatar"
+            app:argType="string"
+            android:defaultValue='' />
+
+        <argument
+            android:name="userName"
+            app:argType="string"
+            android:defaultValue='' />
+
+    </fragment>
+</navigation>

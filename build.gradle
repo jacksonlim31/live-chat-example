@@ -1,0 +1,44 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.2.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${KOTLIN_VERSION}"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:${DAGGER_HILT_VERSION}"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:${NAVIGATION_VERSION}"
+    }
+}
+
+ext {
+    compileSdkVersion = 31
+    buildToolsVersion = '30.0.3'
+    minSdkVersion = 16
+    targetSdkVersion = 31
+    chatSDKVersionName = '1.0.0'
+    chatSDKVersionCode = 1
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            name = "GitHubPackages"
+
+            // Replace GITHUB_USERID with your personal or organisation user ID and
+            // REPOSITORY with the name of the repository on GitHub
+            url = uri("https://maven.pkg.github.com/carousell/chat-android-sdk")
+
+            credentials {
+                username = ""
+                password = ""
+            }
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

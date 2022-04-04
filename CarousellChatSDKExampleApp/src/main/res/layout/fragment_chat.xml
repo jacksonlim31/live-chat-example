@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable name="userAvatar" type="String" />
+        <variable name="username" type="String" />
+        <variable name="itemName" type="String" />
+        <variable name="itemPrice" type="String" />
+        <variable name="itemImage" type="String" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/yellow"
+        tools:context=".ui.ChatRoomFragment">
+
+        <LinearLayout
+            android:id="@+id/layout_chat_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:paddingRight="5dp"
+            android:paddingBottom="5dp">
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/imageSwitch"
+                android:layout_width="50dp"
+                android:layout_weight="0.1"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/edt_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/edt_message_box"
+                android:hint="@string/edt_msg_placeholder"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:layout_weight="0.8"
+                android:textColor="@color/black"
+                android:textColorHint="@android:color/darker_gray"/>
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_weight="0.1"
+                android:layout_marginLeft="5dp"
+                android:text="@string/send" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/ll_user_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imv_avatar"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:imageUrl="@{userAvatar}"
+                android:layout_alignParentStart="true"
+                tools:srcCompat="@tools:sample/avatars"
+                android:layout_alignParentLeft="true" />
+
+            <TextView
+                android:id="@+id/txt_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/imv_avatar"
+                android:text="@{username}"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="@string/username" />
+
+            <TextView
+                android:id="@+id/txt_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="15sp"
+                android:text="@string/online"
+                android:textColor="@color/teal_700"
+                android:visibility="gone"
+                android:layout_toRightOf="@+id/imv_avatar"
+                android:layout_below="@+id/txt_username"
+                tools:text="@string/online"
+                tools:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/txt_typing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="15sp"
+                android:text="@string/typing"
+                android:textColor="@color/teal_700"
+                android:visibility="gone"
+                android:layout_toRightOf="@+id/imv_avatar"
+                android:layout_below="@+id/txt_status"
+                tools:text="@string/typing"
+                tools:visibility="visible"/>
+
+            <Button
+                android:id="@+id/btn_archive"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:text="Archive" />
+
+            <Button
+                android:id="@+id/btn_block"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btn_archive"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:text="Block" />
+
+            <Button
+                android:id="@+id/btn_unblock"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btn_block"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="5dp"
+                android:text="unblock" />
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_chat_room"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/layout_chat_bottom"
+            android:layout_below="@+id/ll_user_info"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp" />
+
+        <ProgressBar
+            android:id="@+id/progress_circular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+</layout>

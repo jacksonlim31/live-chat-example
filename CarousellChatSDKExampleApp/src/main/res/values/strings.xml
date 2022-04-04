@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ChatSDKExampleApp</string>
+    <string name="username">Jackson Lim</string>
+    <string name="send">Send</string>
+    <string name="online">Online</string>
+    <string name="typing">Typing...</string>
+    <string name="zero">Total Unread: 0</string>
+    <string name="edt_msg_placeholder">Message here...</string>
+</resources>

@@ -1,0 +1,78 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.carousell.CarousellChatSDKExampleApp"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            debuggable true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+    implementation "androidx.multidex:multidex:${MULTIDEX_VERSION}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:${KOTLIN_VERSION}"
+    implementation "androidx.core:core-ktx:${ANDROIDX_CORE_KTX_VERSION}"
+    implementation "androidx.appcompat:appcompat:${ANDROIDX_APPCOMPAT_VERSION}"
+    implementation "com.google.android.material:material:${MATERIAL_VERSION}"
+    implementation "androidx.constraintlayout:constraintlayout:${ANDROIDX_CONSTRAINT_VERSION}"
+
+    implementation "androidx.legacy:legacy-support-v4:${ANDROIDX_LEGACY_SUPPORT_VERSION}"
+    testImplementation "junit:junit:${JUNIT_VERSION}"
+    androidTestImplementation "androidx.test.ext:junit:${EXT_JUNIT_VERSION}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${ESPRESSO_CORE_VERSION}"
+
+    implementation("com.google.dagger:hilt-android:${DAGGER_HILT_VERSION}")
+    kapt("com.google.dagger:hilt-android-compiler:${DAGGER_HILT_VERSION}")
+
+    implementation "com.github.bumptech.glide:glide:${GLIDE_VERSION}"
+    kapt("com.github.bumptech.glide:compiler:${GLIDE_VERSION}")
+
+    implementation "androidx.navigation:navigation-fragment-ktx:${NAVIGATION_VERSION}"
+    implementation "androidx.navigation:navigation-ui-ktx:${NAVIGATION_VERSION}"
+
+    implementation "com.squareup.retrofit2:retrofit:${RETROFIT_VERSION}"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:${RETROFIT_VERSION}"
+    implementation "com.squareup.retrofit2:converter-scalars:${RETROFIT_VERSION}"
+    implementation "com.squareup.retrofit2:converter-gson:${RETROFIT_VERSION}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${RETROFIT_LOGGING_VERSION}"
+
+    implementation "io.reactivex.rxjava3:rxandroid:${RXJAVA_ANDROID_VERSION}"
+    implementation "io.reactivex.rxjava3:rxjava:${RXJAVA_VERSION}"
+    implementation "com.carousell:chat-android-sdk:${CHAT_VERSION}"
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+}
